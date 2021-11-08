@@ -33,4 +33,8 @@ public class TodoController {
         return this.todoRepository.findById(todoId)
                 .map(oldTodo -> this.todoRepository.save(updatedTodo));
     }
+    @DeleteMapping("/{todoId}")
+    public void deleteTodo(@PathVariable("todoId") Long todoId) {
+        this.todoRepository.deleteById(todoId);
+    }
 }
